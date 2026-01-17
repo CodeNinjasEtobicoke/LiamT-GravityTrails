@@ -5,6 +5,7 @@ using UnityEngine;
 public class GravityFlip : MonoBehaviour
 {
     public Rigidbody2D avatarRigidbody;
+    public GameObject avatarSpriteImage;
 
     private float currentYScale = 1;
 
@@ -23,8 +24,8 @@ public class GravityFlip : MonoBehaviour
             Vector3 newDirection = transform.localScale;
             newDirection.y *= -1;
 
-            currentYScale *= -1; 
-            transform.localScale = new Vector3(1, currentYScale, 1);
+            currentYScale *= -1;
+            avatarSpriteImage.transform.localScale = new Vector3(1, currentYScale, 1);
 
         }
         
