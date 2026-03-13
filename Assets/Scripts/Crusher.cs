@@ -22,6 +22,8 @@ public class Crusher : MonoBehaviour
         transform.position = newPosition;
     }
 
+
+    // Still need to do pick up star and throw star
 }
 
 
