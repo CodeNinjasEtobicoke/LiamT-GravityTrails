@@ -21,10 +21,20 @@ public class Throwable : MonoBehaviour
         offset = transform.localScale.x * new Vector3(1, 0, 0);
         Vector3 throwablePosition = transform.position + offset;
 
-        if (Input.GetButtonDown("Firel"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(objectThrown, throwablePosition, transform.rotation);
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Collectable") {
+
+            Debug.Log("collide");
+            Destroy(collision.gameObject);
+            throwableCounter = throwableCounter + 1;
         }
     }
 }
