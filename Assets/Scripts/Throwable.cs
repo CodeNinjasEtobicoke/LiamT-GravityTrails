@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro; 
 
 public class Throwable : MonoBehaviour
 {
     public GameObject objectThrown;
     public Vector3 offset;
     public int throwableCounter;
-
+    public TextMeshProUGUI collectableCounterText;
+        
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,8 @@ public class Throwable : MonoBehaviour
             
             Instantiate(objectThrown, throwablePosition, transform.rotation);
             throwableCounter -= 1;
+            collectableCounterText.text = throwableCounter.ToString();
+
         }
     }
 
@@ -36,6 +39,8 @@ public class Throwable : MonoBehaviour
             Debug.Log("collide");
             Destroy(collision.gameObject);
             throwableCounter = throwableCounter + 1;
+            collectableCounterText.text = throwableCounter.ToString();
+
         }
     }
 }

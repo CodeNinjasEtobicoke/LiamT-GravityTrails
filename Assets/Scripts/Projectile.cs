@@ -31,6 +31,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Teleport Tea = GameObject.Find("Teleporter").GetComponent<Teleport>();
+            Tea.enemyCount -= 1;
             Destroy (collision.gameObject);
             Destroy(gameObject);
         }
